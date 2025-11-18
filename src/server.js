@@ -9,6 +9,7 @@ import usuarioRoutes from "./routes/usuario.routes.js";
 import livrosRoutes from "./routes/livros.routes.js";
 import avaliacoesRoutes from "./routes/avaliacao.routes.js";
 import reservasRoutes from "./routes/reservas.routes.js"
+import favoritosRoutes from "./routes/favoritos.routes.js"
 
 
 // ============================
@@ -31,7 +32,8 @@ app.use("/livros", livrosRoutes);
 app.use("/avaliacoes", avaliacoesRoutes);
 // Usa as rotas de reservas
 app.use("/reservas", reservasRoutes);
-
+// Usa as rotas de favoritos
+app.use("/favoritos", favoritosRoutes)
 
 // ============================
 //  Inicia o servidor
