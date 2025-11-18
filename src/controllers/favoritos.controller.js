@@ -1,4 +1,4 @@
-import { db } from "../config/db";
+import { db } from "../config/db.js";
 
 // ==============================
 // Rotas CRUD - Favoritos   
@@ -37,13 +37,18 @@ export async function criarFavorito(req, res) {
 export async function retirarFavorito(req, res) {
   try {
     const { id } = req.params;
-    const [result] = await db.execute("DELETE FROM favoritos WHERE id = ?", [id]);
+
+    const [result] = await db.execute(
+        "DELETE FROM favoritos WHERE id = ?",
+        [id]
+    );
 
     if (result.affectedRows === 0) {
       return res.status(404).json({ erro: "Livro favoritado não encontrado." });
     }
 
     res.json({ mensagem: "Favorito retirado com sucesso!" });
+
   } catch (err) {
     res.status(500).json({ erro: err.message });
   }
